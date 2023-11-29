@@ -1,5 +1,13 @@
 {
   "files": [],
+  "compilerOptions": {
+    "moduleResolution": "Node",
+    "target": "esnext",
+    "module": "esnext",
+    "strict": false,
+    "jsx": "preserve",
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "./components.d.ts"],
   "references": [
     {
       "path": "./tsconfig.node.json"
@@ -9,3 +17,4 @@
     }
   ]
 }
+

@@ -1,20 +1,33 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from '@/components/HelloWorld.vue'
+const checked = ref(true);
+const theme=ref('dark')
+const onUpdateValue=(value)=>{
+  theme.value=value?'light':'dark'
+}
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <van-config-provider :theme="theme" theme-vars-scope="global">
+      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <div class="wrapper">
+        <HelloWorld msg="You did it!" />
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
+        <nav>
+          <RouterLink to="/">Home</RouterLink>
+          <RouterLink to="/about">About</RouterLink>
+        </nav>
+      </div>
+      <van-cell center title="主题切换">
+        <template #right-icon>
+          <van-switch v-model="checked" @update:model-value="onUpdateValue"  />
+        </template>
+      </van-cell>
+    </van-config-provider>
   </header>
 
   <RouterView />
