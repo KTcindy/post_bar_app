@@ -1,10 +1,16 @@
-@import './base.css';
+@import './theme.less';
 
+*,body,html{
+  /* height: 100vmin; */
+  margin: 0;
+  margin: 0;
+}
 #app {
-  max-width: 1280px;
+  max-width: 750px;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
-
+  /* padding: 2rem; */
+  /* height: 100%; */
   font-weight: normal;
 }
 

@@ -6,8 +6,13 @@
     "module": "esnext",
     "strict": false,
     "jsx": "preserve",
+    "types": ["vue","Node"],
+    "baseUrl":"./",
+    "paths": {
+      "@/*":["src/*"]
+    }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "./components.d.ts"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "./components.d.ts", "src/utils/request.js"],
   "references": [
     {
       "path": "./tsconfig.node.json"

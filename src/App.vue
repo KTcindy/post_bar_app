@@ -3,40 +3,22 @@ import { ref } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from '@/components/HelloWorld.vue'
 const checked = ref(true);
-const theme=ref('dark')
-const onUpdateValue=(value)=>{
-  theme.value=value?'light':'dark'
+const theme = ref('pink')
+const onUpdateValue = (value) => {
+  theme.value = value ? 'pink' : 'dark'
 }
 </script>
 
 <template>
-  <header>
-    <van-config-provider :theme="theme" theme-vars-scope="global">
-      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-      <div class="wrapper">
-        <HelloWorld msg="You did it!" />
-
-        <nav>
-          <RouterLink to="/">Home</RouterLink>
-          <RouterLink to="/about">About</RouterLink>
-        </nav>
-      </div>
-      <van-cell center title="主题切换">
-        <template #right-icon>
-          <van-switch v-model="checked" @update:model-value="onUpdateValue"  />
-        </template>
-      </van-cell>
-    </van-config-provider>
-  </header>
-
-  <RouterView />
+  <van-config-provider  theme-vars-scope="global">
+    <router-view></router-view>
+  </van-config-provider>
 </template>
 
-<style scoped>
+<style lang="less" scoped>
 header {
-  line-height: 1.5;
-  max-height: 100vh;
+  // line-height: 1.5;
+  // max-height: 100vh;
 }
 
 .logo {
