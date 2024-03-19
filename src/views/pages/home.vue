@@ -2,6 +2,7 @@
 import NavBar from '@/components/navBar.vue'
 import PullRefresh from '@/components/pullRefresh.vue'
 import Content from '@/components/contents.vue'
+import Search from '@/components/search.vue'
 import { ref } from 'vue'
 const isLoading = ref(false)
 const pullRefresh = () => {
@@ -14,7 +15,9 @@ const pullRefresh = () => {
 <template>
   <NavBar />
   <PullRefresh @pullRefresh="pullRefresh" :isLoading="isLoading">
-    <Content>我有内容</Content>
+    <Content>
+      <Search/>
+    </Content>
   </PullRefresh>
 </template>
 <style scoped>
