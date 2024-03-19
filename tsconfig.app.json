@@ -5,7 +5,7 @@
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "paths": {
       "@/*": ["./src/*"]
     }

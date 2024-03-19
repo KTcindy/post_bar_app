@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue';
 import { RouterView } from 'vue-router'
-import tabBar from '@/components/tab_bar.vue'
+import tabBar from '@/components/tabBar.vue'
 const active = ref(0);
 const itemClick = (value) =>{
   active.value = value;

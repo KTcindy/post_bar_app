@@ -21,7 +21,6 @@ export default defineConfig({
     preprocessorOptions: {
       less: {
         // math: "always",
-        
       },
     },
   },
