@@ -29,7 +29,6 @@ const props = defineProps({
 <template>
   <van-search
     :model-value="value"
-    show-action
     shape="round"
     :show-action="showAction"
     :input-align="inputAlign"
