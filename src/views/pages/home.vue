@@ -6,14 +6,14 @@ import Search from '@/components/search.vue'
 import Tab from '@/components/tab.vue'
 import { ref } from 'vue'
 const isLoading = ref(false)
-const active = ref<Number>(1)
+const active = ref(1)
 const pullRefresh = () => {
   isLoading.value = true
   setTimeout(() => {
     isLoading.value = false
   }, 1000)
 }
-const handelClick = (e: Number) => {
+const handelClick = (e) => {
   active.value = e
 }
 </script>
@@ -22,7 +22,7 @@ const handelClick = (e: Number) => {
   <PullRefresh @pullRefresh="pullRefresh" :isLoading="isLoading">
     <Content>
       <Search />
-      <Tab :active="active" @item-check="handelClick" />
+      <Tab v-bind:active="active" @item-check="handelClick" />
     </Content>
   </PullRefresh>
 </template>

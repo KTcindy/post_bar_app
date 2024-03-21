@@ -19,12 +19,15 @@
       <div class="tab-content" v-show="iconShow">
         <van-grid :gutter="10">
           <van-grid-item
-          class="grid_active"
+            class="grid_active"
             v-on:click="itemCheck(item.id)"
             v-for="item in items"
             :key="item.id"
-            :text="item.name"
-          />
+          >
+            <slot name="text">
+              <span v-bind:class="[active=== item.id?'grid-item__active':'']">{{ item.name }}</span>
+            </slot>
+          </van-grid-item>
         </van-grid>
       </div>
     </van-overlay>
@@ -36,11 +39,11 @@ interface Item {
   name: string
   id: Number
 }
-import { ref, onMounted, onUnmounted,h } from 'vue'
+import { ref, onMounted, onUnmounted, h } from 'vue'
 const emit = defineEmits(['item-check'])
 const iconShow = ref<Boolean>(false)
 const overlay = ref(null)
-const overlay_top = ref(null);
+const overlay_top = ref(null)
 const props = defineProps({
   items: {
     type: Array as () => Item[],
@@ -62,12 +65,11 @@ const props = defineProps({
   }
 })
 const itemCheck = (id: Number) => emit('item-check', id)
-const onClickIcon = () =>{
- overlay_top.value=overlay.value.getBoundingClientRect().bottom+'px';
-   iconShow.value = !iconShow.value
+const onClickIcon = () => {
+  overlay_top.value = overlay.value.getBoundingClientRect().bottom + 'px'
+  iconShow.value = !iconShow.value
 }
-const isShowClick = (e) => iconShow.value = false
-
+const isShowClick = (e) => (iconShow.value = false)
 </script>
 
 <style lang="less" scoped>
@@ -80,7 +82,10 @@ const isShowClick = (e) => iconShow.value = false
 [class~='overlay'] {
   top: v-bind(overlay_top);
 }
-
+[class~='grid-item__active'] {
+  color: var(--van-blue);
+  // border: 1px solid var(--van-blue);
+}
 .tab {
   position: relative;
   display: flex;
@@ -125,10 +130,5 @@ const isShowClick = (e) => iconShow.value = false
   justify-content: space-around;
   background-color: var(--color-0);
   padding: var(--padding-1) 0px;
-  [class~='van-grid-item__content']{
-    color: var(--van-blue);
-   border: 1px solid var(--van-blue);
-  }
-   
 }
 </style>
