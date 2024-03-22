@@ -4,9 +4,20 @@ import PullRefresh from '@/components/pullRefresh.vue'
 import Content from '@/components/contents.vue'
 import Search from '@/components/search.vue'
 import Tab from '@/components/tab.vue'
+import Modules from '@/components/modules.vue'
 import { ref } from 'vue'
 const isLoading = ref(false)
 const active = ref(1)
+const contents = ref([
+  {
+    profileUlr: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    name: 'ktcindy',
+    title: '还有没有像这样的搞笑短篇漫画啊',
+    content: '康康吊图吧的老哥们有没有存货',
+    contentUrl: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    barName: '动漫吧'
+  }
+])
 const pullRefresh = () => {
   isLoading.value = true
   setTimeout(() => {
@@ -23,6 +34,9 @@ const handelClick = (e) => {
     <Content>
       <Search />
       <Tab v-bind:active="active" @item-check="handelClick" />
+      <template v-for="(item, index) in contents" :key="index">
+        <Modules v-bind="{...item}" />
+      </template>
     </Content>
   </PullRefresh>
 </template>
