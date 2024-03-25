@@ -31,6 +31,11 @@
       <div>
         <van-button round icon="fire" type="default" size="mini">{{barName}}</van-button>
       </div>
+      <div class="container_operation">
+        <span><van-icon name="share-o" /> 分享</span>
+        <span><van-icon name="comment-circle-o" /> 160</span>
+        <span><van-icon name="thumb-circle-o" /> 123</span>
+      </div>
     </div>
   </lazy-component>
 </template>
@@ -83,6 +88,13 @@ const props = defineProps({
   .container_navigation {
     // border-radius: 15px;
     overflow: hidden;
+  }
+  .container_operation{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    text-align: center;
+    grid-column-gap: 20px;
+    margin: 10px 0px;
   }
 }
 </style>
