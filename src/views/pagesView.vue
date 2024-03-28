@@ -9,6 +9,7 @@ const itemClick = (value) =>{
 </script>
 <template>
   <div class="about">
+    <NavBar />
     <router-view></router-view>
     <tabBar :active="active" @item-check="itemClick" />
   </div>

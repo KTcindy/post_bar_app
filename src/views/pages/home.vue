@@ -40,7 +40,6 @@ const handelClick = (e) => {
 }
 </script>
 <template>
-  <NavBar />
   <!-- <PullRefresh @pullRefresh="pullRefresh" :isLoading="isLoading"> -->
     <Content>
       <Search />
