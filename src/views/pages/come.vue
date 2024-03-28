@@ -19,7 +19,7 @@ const onSelect = (action) => showToast(action.text)
           </template>
         </van-popover>
       </div>
-      <div>
+      <div class="history_bar">
         <div>1</div>
         <div>2</div>
         <div>3</div>
@@ -34,5 +34,8 @@ const onSelect = (action) => showToast(action.text)
   display: flex;
   justify-content: space-between;
   margin: var(--padding-1);
+}
+.history_bar{
+    display: flex;
 }
 </style>
