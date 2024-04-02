@@ -7,13 +7,7 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    Card: typeof import('./src/components/card.vue')['default']
     Contents: typeof import('./src/components/contents.vue')['default']
-    IconCommunity: typeof import('./src/components/icons/IconCommunity.vue')['default']
-    IconDocumentation: typeof import('./src/components/icons/IconDocumentation.vue')['default']
-    IconEcosystem: typeof import('./src/components/icons/IconEcosystem.vue')['default']
-    IconSupport: typeof import('./src/components/icons/IconSupport.vue')['default']
-    IconTooling: typeof import('./src/components/icons/IconTooling.vue')['default']
     Modules: typeof import('./src/components/modules.vue')['default']
     NavBar: typeof import('./src/components/navBar.vue')['default']
     PullRefresh: typeof import('./src/components/pullRefresh.vue')['default']
@@ -21,7 +15,6 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     Search: typeof import('./src/components/search.vue')['default']
     Tab: typeof import('./src/components/tab.vue')['default']
-    Tab_bar: typeof import('./src/components/tabBar.vue')['default']
     TabBar: typeof import('./src/components/tabBar.vue')['default']
     VanButton: typeof import('vant/es')['Button']
     VanCellGroup: typeof import('vant/es')['CellGroup']
@@ -37,7 +30,6 @@ declare module 'vue' {
     VanNavBar: typeof import('vant/es')['NavBar']
     VanOverlay: typeof import('vant/es')['Overlay']
     VanPopover: typeof import('vant/es')['Popover']
-    VanPullRefresh: typeof import('vant/es')['PullRefresh']
     VanSearch: typeof import('vant/es')['Search']
     VanTabbar: typeof import('vant/es')['Tabbar']
     VanTabbarItem: typeof import('vant/es')['TabbarItem']
