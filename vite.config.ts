@@ -24,10 +24,9 @@ export default defineConfig({
       },
     },
   },
-  // server:{
-  //   host:'192.168.0.103',
-  //   port:3002
-  // },
+  server:{
+    host:'192.168.0.104'
+  },
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

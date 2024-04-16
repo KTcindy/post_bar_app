@@ -30,6 +30,12 @@ const historyItem = ref([
     name: '口袋海贼王',
     title: '2013最热海贼手机游戏，口袋海贼王',
     count: '关注 3.9万'
+  },
+  {
+    url: 'https://fastly.jsdelivr.net/npm/@vant/assets/cat.jpeg',
+    name: '口袋海贼王',
+    title: '2013最热海贼手机游戏，口袋海贼王',
+    count: '关注 3.9万'
   }
 ])
 </script>
@@ -50,12 +56,14 @@ const historyItem = ref([
           </template>
         </van-popover>
       </div>
-      <div class="history_bar">
-        <div class="history_bar_item" v-for="(item, index) in historyItem" :key="index">
-          <van-image round width="3rem" height="3rem" :src="item.url" />
-          <div class="history_bar_item_name">{{ item.name }}</div>
-          <div class="history_bar_item_title">{{ item.title }}</div>
-          <div class="history_bar_item_count">{{ item.count }}</div>
+      <div class="history_bar_container">
+        <div class="history_bar">
+          <div class="history_bar_item" v-for="(item, index) in historyItem" :key="index">
+            <van-image round width="3rem" height="3rem" :src="item.url" />
+            <div class="history_bar_item_name">{{ item.name }}</div>
+            <div class="history_bar_item_title">{{ item.title }}</div>
+            <div class="history_bar_item_count">{{ item.count }}</div>
+          </div>
         </div>
       </div>
     </Content>
@@ -67,36 +75,44 @@ const historyItem = ref([
   justify-content: space-between;
   margin: var(--padding-1);
 }
+.history_bar_container {
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding-bottom: 10px;
+}
+
 .history_bar {
-  //   display: grid;
-  //   grid-template-columns: 1fr 1fr 1fr;
-  //   grid-column-gap: 20px;
-  //   grid-row-gap: 20px;
-  display: flex;
-  width: 100vw;
-  .history_bar_item {
-    padding: var(--padding-1);
-    font-size: var(--size-1);
-    text-align: center;
-    background-color: var(--color-0);
-    width: 30%;
-    .history_bar_item_name {
-      font-size: 14px;
-      padding-bottom: 10px;
-    }
-    .history_bar_item_title {
-      font-size: 10px;
-      padding-bottom: 10px;
-      overflow: hidden;
-      //两行溢出省略号
-      text-overflow: ellipsis;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-    }
-    .history_bar_item_count {
-      font-size: 12px;
-    }
+  display: inline-block;
+}
+
+.history_bar_item {
+  display: inline-block;
+//   margin-right: 20px; /* 添加间距，使项目之间有一定距离 */
+  padding: var(--padding-1);
+  font-size: var(--size-1);
+  text-align: center;
+  background-color: var(--color-0);
+  width: 80px;
+  margin:0px 10px;
+//   scroll-margin-top: 20px;
+  .history_bar_item_name {
+    font-size: 14px;
+    padding-bottom: 10px;
+  }
+  .history_bar_item_title {
+    font-size: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    overflow: hidden;
+    /*文本不会换行*/
+    // white-space: nowrap;
+    /*当文本溢出包含元素时，以省略号表示超出的文本*/
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 3;
+  }
+  .history_bar_item_count {
+    font-size: 12px;
   }
 }
 </style>
