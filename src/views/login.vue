@@ -1,7 +1,8 @@
+
 <script setup lang="ts">
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
-// import {getUser} from '@/utils/require.js'
+import {getUser} from '@/utils/request'
 
 const users = reactive({
   username: '',
@@ -10,7 +11,11 @@ const users = reactive({
 // const route = useRoute()
 const router = useRouter()
 const onSubmit = () => {
+    getUser().then(res => {
+      // console.log(res)
   router.push({ path: '/pages' })
+
+    })
 }
 
 </script>
